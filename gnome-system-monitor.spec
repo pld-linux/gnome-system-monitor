@@ -25,7 +25,6 @@ BuildRequires:	scrollkeeper
 BuildRequires:	xft-devel >= 2.1-2
 Requires(post):	GConf2
 Requires(post):	scrollkeeper
-Requires:	libgnomesu >= 0.9.5
 Obsoletes:	procman
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
