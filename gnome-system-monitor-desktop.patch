@@ -1,6 +1,6 @@
-diff -aurN gnome-system-monitor-2.6.0.orig/gnome-system-monitor.desktop.in gnome-system-monitor-2.6.0/gnome-system-monitor.desktop.in
---- gnome-system-monitor-2.6.0.orig/gnome-system-monitor.desktop.in	2003-07-02 19:37:56.000000000 +0200
-+++ gnome-system-monitor-2.6.0/gnome-system-monitor.desktop.in	2004-08-24 14:00:01.863120832 +0200
+diff -aurN gnome-system-monitor-2.6.0.orig/gnome-system-monitor.desktop.in.in gnome-system-monitor-2.6.0/gnome-system-monitor.desktop.in.in
+--- gnome-system-monitor-2.6.0.orig/gnome-system-monitor.desktop.in.in	2003-07-02 19:37:56.000000000 +0200
++++ gnome-system-monitor-2.6.0/gnome-system-monitor.desktop.in.in	2004-08-24 14:00:01.863120832 +0200
 @@ -8,7 +8,7 @@
  Terminal=false
  Type=Application
