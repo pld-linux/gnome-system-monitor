@@ -1,14 +1,13 @@
 Summary:	Simple process monitor
 Summary(pl):	Prosty monitor procesów
 Name:		gnome-system-monitor
-Version:	2.7.0
-Release:	3
+Version:	2.8.0
+Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/2.7/%{name}-%{version}.tar.bz2
-# Source0-md5:	e2e46c3ee26458a808d52071b7420413
-Patch0:		%{name}-locale-names.patch
-Patch1:		%{name}-desktop.patch
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/2.8/%{name}-%{version}.tar.bz2
+# Source0-md5:	9aec14e8c549b26b2d2cd0e997038d8f
+Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.8.0.1
 BuildRequires:	autoconf
@@ -35,9 +34,6 @@ Jest to prosty monitor procesów i systemu.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
-
-mv po/{no,nb}.po
 
 %build
 %{__aclocal}
@@ -53,6 +49,8 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	omf_dest_dir=%{_omf_dest_dir}/%{name} \
 	GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
+
+rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 
 %find_lang %{name} --with-gnome
 
