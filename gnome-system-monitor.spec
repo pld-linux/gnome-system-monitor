@@ -8,7 +8,7 @@ Group:		X11/Applications
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/2.4/%{name}-%{version}.tar.bz2
 # Source0-md5:	f855d85adcc2eb0f20f639cbc2f00cbf
 URL:		http://www.gnome.org/
-Buildrequires:	GConf2-devel >= 2.4.0
+BuildRequires:	GConf2-devel >= 2.4.0
 BuildRequires:	gtk+2-devel >= 2.2.0
 BuildRequires:	libgnome-devel >= 2.4.0
 BuildRequires:	libgnomeui-devel >= 2.4.0
