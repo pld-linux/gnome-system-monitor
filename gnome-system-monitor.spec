@@ -13,6 +13,7 @@ BuildRequires:	GConf2-devel >= 2.8.0.1
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gnome-common >= 2.8.0-2
+BuildRequires:	gnome-vfs2-devel >= 2.8.0
 BuildRequires:	gtk+2-devel >= 2:2.4.4
 BuildRequires:	libgnome-devel >= 2.8.0
 BuildRequires:	libgnomeui-devel >= 2.8.0
