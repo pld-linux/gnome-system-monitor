@@ -6,6 +6,7 @@ Release:	2
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/gnome-system-monitor/2.3/%{name}-%{version}.tar.bz2
+# Source0-md5:	3d54999127ccfc39f4e7f8e73080b5f3
 URL:		http://www.gnome.org/
 Buildrequires:	GConf2-devel >= 2.1.90
 BuildRequires:	gtk+2-devel >= 2.2.0
