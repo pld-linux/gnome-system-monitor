@@ -1,23 +1,23 @@
 Summary:	Simple process monitor
 Summary(pl):	Prosty monitor procesów
 Name:		gnome-system-monitor
-Version:	2.6.0
-Release:	2
+Version:	2.7.0
+Release:	3
 License:	GPL
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/2.6/%{name}-%{version}.tar.bz2
-# Source0-md5:	1bc8709baa43fdca7eee8cad1dc76b17
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/2.7/%{name}-%{version}.tar.bz2
+# Source0-md5:	e2e46c3ee26458a808d52071b7420413
 Patch0:		%{name}-locale-names.patch
 Patch1:		%{name}-desktop.patch
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 2.5.90
+BuildRequires:	GConf2-devel >= 2.8.0.1
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gtk+2-devel >= 2:2.4.0
-BuildRequires:	libgnome-devel >= 2.5.92
-BuildRequires:	libgnomeui-devel >= 2.5.92
-BuildRequires:	libgtop-devel >= 2.5.2
-BuildRequires:	libwnck-devel >= 2.5.90
+BuildRequires:	gtk+2-devel >= 2:2.4.4
+BuildRequires:	libgnome-devel >= 2.8.0
+BuildRequires:	libgnomeui-devel >= 2.8.0
+BuildRequires:	libgtop-devel >= 1:2.8.0
+BuildRequires:	libwnck-devel >= 2.8.0
 BuildRequires:	rpm-build >= 4.1-10
 BuildRequires:	scrollkeeper
 BuildRequires:	xft-devel >= 2.1-2
