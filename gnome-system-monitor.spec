@@ -2,7 +2,7 @@ Summary:	Simple process monitor
 Summary(pl):	Prosty monitor procesów
 Name:		gnome-system-monitor
 Version:	2.0.3
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/gnome-system-monitor/2.0/%{name}-%{version}.tar.bz2
@@ -13,13 +13,10 @@ BuildRequires:	libgnome-devel >= 2.0.0
 BuildRequires:	libgnomeui-devel >= 2.0.0
 BuildRequires:	libgtop-devel >= 2.0.0
 BuildRequires:	libwnck-devel >= 0.12
+BuildRequires:	rpm-build >= 4.1-8.2
 BuildRequires:	scrollkeeper
 Obsoletes:	procman
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		_prefix		/usr/X11R6
-%define		_mandir		%{_prefix}/man
-%define   _omf_dest_dir %(scrollkeeper-config --omfdir)
 
 %description
 This is a simple process and system monitor.
