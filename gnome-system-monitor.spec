@@ -2,7 +2,7 @@ Summary:	Simple process monitor
 Summary(pl):	Prosty monitor procesów
 Name:		gnome-system-monitor
 Version:	2.7.0
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/2.7/%{name}-%{version}.tar.bz2
@@ -16,7 +16,7 @@ BuildRequires:	automake
 BuildRequires:	gtk+2-devel >= 2:2.4.4
 BuildRequires:	libgnome-devel >= 2.7.1
 BuildRequires:	libgnomeui-devel >= 2.7.1
-BuildRequires:	libgtop-devel >= 2.6.0
+BuildRequires:	libgtop-devel >= 1:2.7.92
 BuildRequires:	libwnck-devel >= 2.6.2
 BuildRequires:	rpm-build >= 4.1-10
 BuildRequires:	scrollkeeper
