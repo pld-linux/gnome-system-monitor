@@ -1,20 +1,22 @@
 Summary:	Simple process monitor
 Summary(pl):	Prosty monitor procesów
 Name:		gnome-system-monitor
-Version:	2.4.0
-Release:	3
+Version:	2.6.0
+Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/2.4/%{name}-%{version}.tar.bz2
-# Source0-md5:	f855d85adcc2eb0f20f639cbc2f00cbf
-Patch0:		%{name}-pwd.patch
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/2.6/%{name}-%{version}.tar.bz2
+# Source0-md5:	1bc8709baa43fdca7eee8cad1dc76b17
+Patch0:		%{name}-locale-names.patch
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 2.4.0
-BuildRequires:	gtk+2-devel >= 2.2.0
-BuildRequires:	libgnome-devel >= 2.4.0
-BuildRequires:	libgnomeui-devel >= 2.4.0
-BuildRequires:	libgtop-devel >= 2.0.3
-BuildRequires:	libwnck-devel >= 2.4.0
+BuildRequires:	GConf2-devel >= 2.5.90
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	gtk+2-devel >= 2:2.4.0
+BuildRequires:	libgnome-devel >= 2.5.92
+BuildRequires:	libgnomeui-devel >= 2.5.92
+BuildRequires:	libgtop-devel >= 2.5.2
+BuildRequires:	libwnck-devel >= 2.5.90
 BuildRequires:	rpm-build >= 4.1-10
 BuildRequires:	scrollkeeper
 BuildRequires:	xft-devel >= 2.1-2
@@ -33,7 +35,12 @@ Jest to prosty monitor procesów i systemu.
 %setup -q
 %patch0 -p1
 
+mv po/{no,nb}.po
+
 %build
+%{__aclocal}
+%{__autoconf}
+%{__automake}
 %configure
 %{__make}
 
