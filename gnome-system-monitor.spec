@@ -1,19 +1,21 @@
 Summary:	Simple process monitor
 Summary(pl):	Prosty monitor procesów
 Name:		gnome-system-monitor
-Version:	2.5.2
+Version:	2.5.3
 Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/2.5/%{name}-%{version}.tar.bz2
-# Source0-md5:	627167b4395f119d0c8439ec83518edb
-Patch0:		%{name}-gtksnap.patch
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/2.5/%{name}-%{version}.tar.bz2
+# Source0-md5:	5d42d637beeb6f623583c3c3065c2788
+Patch0:		%{name}-locale-names.patch
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 2.4.0
-BuildRequires:	gtk+2-devel >= 2.3.0-1.20031126.1
+BuildRequires:	GConf2-devel >= 2.5.0
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	gtk+2-devel >= 2.3.2
 BuildRequires:	libgnome-devel >= 2.5.0
 BuildRequires:	libgnomeui-devel >= 2.5.0
-BuildRequires:	libgtop-devel >= 2.5.0
+BuildRequires:	libgtop-devel >= 2.5.1
 BuildRequires:	libwnck-devel >= 2.5.0
 BuildRequires:	rpm-build >= 4.1-10
 BuildRequires:	scrollkeeper
@@ -31,8 +33,14 @@ Jest to prosty monitor procesów i systemu.
 
 %prep
 %setup -q
+%patch0 -p1
+
+mv po/{no,nb}.po
 
 %build
+%{__aclocal}
+%{__autoconf}
+%{__automake}
 %configure
 %{__make}
 
