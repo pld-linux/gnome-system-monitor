@@ -1,12 +1,12 @@
 Summary:	Simple process monitor
 Summary(pl):	Prosty monitor procesów
 Name:		gnome-system-monitor
-Version:	2.9.91
+Version:	2.9.92
 Release:	1
-License:	GPL
+License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/2.9/%{name}-%{version}.tar.bz2
-# Source0-md5:	c0d6b1a12b676be286c768ba8a523edf
+Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-system-monitor/2.9/%{name}-%{version}.tar.bz2
+# Source0-md5:	593390acd8d72444a079433513607214
 Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.9.2
@@ -15,16 +15,17 @@ BuildRequires:	automake
 BuildRequires:	gnome-common >= 2.8.0-2
 BuildRequires:	gnome-vfs2-devel >= 2.9.90
 BuildRequires:	gtk+2-devel >= 2:2.6.2
-BuildRequires:	libgnomesu-devel >= 0.9.5
 BuildRequires:	libgnomeui-devel >= 2.9.1
 BuildRequires:	libgtop-devel >= 1:2.9.90
 BuildRequires:	libselinux-devel
 BuildRequires:	libwnck-devel >= 2.9.90
+BuildRequires:	pkgconfig
 BuildRequires:	rpm-build >= 4.1-10
 BuildRequires:	scrollkeeper
 BuildRequires:	xft-devel >= 2.1-2
 Requires(post):	GConf2
 Requires(post):	scrollkeeper
+Requires:	libgnomesu >= 0.9.5
 Obsoletes:	procman
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -46,7 +47,6 @@ cp /usr/share/gnome-common/data/omf.make .
 %configure \
 	--disable-schemas-install \
 	--enable-selinux
-
 %{__make}
 
 %install
