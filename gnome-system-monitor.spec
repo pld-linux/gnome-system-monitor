@@ -2,7 +2,7 @@ Summary:	Simple process monitor
 Summary(pl):	Prosty monitor procesów
 Name:		gnome-system-monitor
 Version:	2.3.0
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/gnome-system-monitor/2.3/%{name}-%{version}.tar.bz2
@@ -35,11 +35,10 @@ Jest to prosty monitor procesów i systemu.
 %install
 rm -rf $RPM_BUILD_ROOT
 
-export GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	omf_dest_dir=%{_omf_dest_dir}/%{name}
-unset GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL
+	omf_dest_dir=%{_omf_dest_dir}/%{name} \
+	GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
 
 %find_lang %{name} --with-gnome
 
