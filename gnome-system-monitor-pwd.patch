@@ -1,0 +1,86 @@
+Index: procman/src/procdialogs.c
+===================================================================
+RCS file: /cvs/gnome/procman/src/procdialogs.c,v
+retrieving revision 1.56
+diff -u -r1.56 procdialogs.c
+--- procman/src/procdialogs.c	21 Oct 2003 23:59:04 -0000	1.56
++++ procman/src/procdialogs.c	18 Nov 2003 08:45:21 -0000
+@@ -186,11 +186,10 @@
+ {
+ 	ProcData *procdata = data;
+ 	
+-	if (id == 100) 
+-		kill_process (procdata, kill_signal);
+-	
+ 	gtk_widget_destroy (GTK_WIDGET (dialog));
+-		
++
++	if (id == 100) 
++		kill_process (procdata, kill_signal);		
+ }
+ 
+ void
+Index: procman/src/util.c
+===================================================================
+RCS file: /cvs/gnome/procman/src/util.c,v
+retrieving revision 1.14
+diff -u -r1.14 util.c
+--- procman/src/util.c	21 Oct 2003 23:59:04 -0000	1.14
++++ procman/src/util.c	18 Nov 2003 08:45:21 -0000
+@@ -181,7 +181,7 @@
+ 	 * Make su think we're sending the password from a terminal:
+ 	 */
+ 
+-	if ((t_fd = OPEN_TTY()) < 0) {
++	if (((t_fd = OPEN_TTY()) < 0) || (grantpt(t_fd) < 0) || (unlockpt(t_fd) < 0)) {
+ 		fprintf (stderr, "Unable to open a terminal\n");
+ 		ABORT (root);
+ 	}
+@@ -194,11 +194,17 @@
+ 	if (pid > 0) {			/* parent process */
+ 		int status;
+ 
++		sleep(1);
++
+ 		/* su(1) won't want a password if we're already root.
+ 		 */
+-		if (root == 0)
++		if (root == 0) {
+ 			write (t_fd, pwd, strlen(pwd));
+ 
++			/* Need the \n to flush the password */
++			write (t_fd, "\n", 1);
++		}
++
+ 		waitpid (pid, &status, 0);
+ 
+ 		if (WIFEXITED (status) && WEXITSTATUS (status) && (WEXITSTATUS(status) < 255)) {
+@@ -212,7 +218,7 @@
+ 	}
+ 	else {				/* child process */
+ 		struct passwd *pw;
+-		char *env, *home;
++		char *env, *home, *pts;
+ 
+ 		/* We have rights to run X (obviously).  We need to ensure the
+ 		 * destination user has the right stuff in the environment
+@@ -253,6 +259,10 @@
+ 			}
+ 		}
+ 
++		if(((pts = ptsname(t_fd)) == NULL) || ((t_fd = open(pts, O_RDWR | O_NOCTTY)) < 0)) {
++			perror ("Unable to open pseudo slave terminal");
++			_exit (-1);
++		}
+ 		dup2 (t_fd, 0);
+ 
+ #if 0
+@@ -260,8 +270,6 @@
+ 		freopen ("/dev/null", "w", stdout);
+ #endif
+ 
+-		sleep (1);
+-		
+ 		execlp ("su", "su", "-m", user_p, "-c", exec_p, NULL);
+ 		_exit (0);
+ 		
