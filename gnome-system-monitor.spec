@@ -1,13 +1,12 @@
 Summary:	Simple process monitor
 Summary(pl):	Prosty monitor procesów
 Name:		gnome-system-monitor
-Version:	2.0.2
+Version:	2.0.3
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/gnome-system-monitor/2.0/%{name}-%{version}.tar.bz2
 URL:		http://www.gnome.org/
-BuildRequires:	gal-devel
 Buildrequires:	GConf2-devel >= 1.1.5
 BuildRequires:	gtk+2-devel >= 2.0.0
 BuildRequires:	libgnome-devel >= 2.0.0
