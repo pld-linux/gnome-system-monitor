@@ -1,30 +1,31 @@
 Summary:	Simple process monitor
 Summary(pl):	Prosty monitor procesów
 Name:		gnome-system-monitor
-Version:	2.8.3
+Version:	2.10.0
 Release:	1
-License:	GPL v2
+License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-system-monitor/2.8/%{name}-%{version}.tar.bz2
-# Source0-md5:	3d4564b2d0b49a5826ae212b23d234df
+Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-system-monitor/2.10/%{name}-%{version}.tar.bz2
+# Source0-md5:	6dc606f13600e49a52b669fb97e789e0
 Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 2.8.0.1
+BuildRequires:	GConf2-devel >= 2.10.0
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gnome-common >= 2.8.0-2
-BuildRequires:	gnome-vfs2-devel >= 2.8.0
-BuildRequires:	gtk+2-devel >= 2:2.4.4
-BuildRequires:	libgnome-devel >= 2.8.0
-BuildRequires:	libgnomeui-devel >= 2.8.0
-BuildRequires:	libgtop-devel >= 1:2.8.0
-BuildRequires:	libwnck-devel >= 2.8.0
+BuildRequires:	gnome-vfs2-devel >= 2.10.0
+BuildRequires:	gtk+2-devel >= 2:2.6.2
+BuildRequires:	libgnomeui-devel >= 2.10.0
+BuildRequires:	libgtop-devel >= 1:2.10.0
+BuildRequires:	libselinux-devel
+BuildRequires:	libwnck-devel >= 2.10.0
 BuildRequires:	pkgconfig
 BuildRequires:	rpm-build >= 4.1-10
 BuildRequires:	scrollkeeper
 BuildRequires:	xft-devel >= 2.1-2
 Requires(post):	GConf2
 Requires(post):	scrollkeeper
+Requires:	libgnomesu >= 0.9.5
 Obsoletes:	procman
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -43,7 +44,9 @@ cp /usr/share/gnome-common/data/omf.make .
 %{__aclocal}
 %{__autoconf}
 %{__automake}
-%configure
+%configure \
+	--disable-schemas-install \
+	--enable-selinux
 %{__make}
 
 %install
@@ -72,5 +75,4 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/gnome-system-monitor
 %{_desktopdir}/*
 %{_sysconfdir}/gconf/schemas/*
-%{_pixmapsdir}/*
 %{_omf_dest_dir}/%{name}
