@@ -2,19 +2,20 @@ Summary:	Simple process monitor
 Summary(pl):	Prosty monitor procesów
 Name:		gnome-system-monitor
 Version:	2.0.3
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/gnome-system-monitor/2.0/%{name}-%{version}.tar.bz2
 URL:		http://www.gnome.org/
 Buildrequires:	GConf2-devel >= 1.1.5
-BuildRequires:	gtk+2-devel >= 2.0.0
+BuildRequires:	gtk+2-devel >= 2.1.3
 BuildRequires:	libgnome-devel >= 2.0.0
 BuildRequires:	libgnomeui-devel >= 2.0.0
 BuildRequires:	libgtop-devel >= 2.0.0
 BuildRequires:	libwnck-devel >= 0.12
 BuildRequires:	rpm-build >= 4.1-8.2
 BuildRequires:	scrollkeeper
+BuildRequires:	Xft-devel >= 2.0-6
 Obsoletes:	procman
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -44,7 +45,7 @@ unset GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL
 
 %post
 /usr/bin/scrollkeeper-update
-GCONF_CONFIG_SOURCE="`%{_bindir}/gconftool-2 --get-default-source`" %{_bindir}/gconftool-2 --makefile-install-rule %{_sysconfdir}/gconf/schemas/*.schemas > /dev/null
+%gconf_schema_install
 
 %postun -p /usr/bin/scrollkeeper-update
 
