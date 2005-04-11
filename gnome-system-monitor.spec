@@ -1,12 +1,12 @@
 Summary:	Simple process monitor
 Summary(pl):	Prosty monitor procesów
 Name:		gnome-system-monitor
-Version:	2.10.0
+Version:	2.10.1
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-system-monitor/2.10/%{name}-%{version}.tar.bz2
-# Source0-md5:	6dc606f13600e49a52b669fb97e789e0
+# Source0-md5:	22acb1699193f8bd2ced656d44f57377
 Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.10.0
@@ -20,11 +20,11 @@ BuildRequires:	libgtop-devel >= 1:2.10.0
 BuildRequires:	libselinux-devel
 BuildRequires:	libwnck-devel >= 2.10.0
 BuildRequires:	pkgconfig
-BuildRequires:	rpm-build >= 4.1-10
+BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper
 BuildRequires:	xft-devel >= 2.1-2
-Requires(post):	GConf2
-Requires(post):	scrollkeeper
+Requires(post,preun):	GConf2
+Requires(post,postun):	scrollkeeper
 Obsoletes:	procman
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -64,10 +64,14 @@ rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 rm -rf $RPM_BUILD_ROOT
 
 %post
-/usr/bin/scrollkeeper-update
-%gconf_schema_install
+%gconf_schema_install gnome-system-monitor.schemas
+%scrollkeeper_update_post
 
-%postun -p /usr/bin/scrollkeeper-update
+%preun
+%gconf_schema_uninstall gnome-system-monitor.schemas
+
+%postun
+%scrollkeeper_update_postun
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
