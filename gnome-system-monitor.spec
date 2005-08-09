@@ -18,7 +18,7 @@ BuildRequires:	gtk+2-devel >= 2:2.6.2
 BuildRequires:	libgnomeui-devel >= 2.11.1
 BuildRequires:	libgtop-devel >= 1:2.10.0
 BuildRequires:	libselinux-devel
-BuildRequires:	libwnck-devel >= 2.11.0
+BuildRequires:	libwnck-devel >= 2.11.91
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper
