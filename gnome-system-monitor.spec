@@ -23,7 +23,6 @@ BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper
 BuildRequires:	xft-devel >= 2.1-2
-Requires:   libgtop
 Requires(post,preun):	GConf2
 Requires(post,postun):	scrollkeeper
 Obsoletes:	procman
