@@ -1,11 +1,11 @@
-diff -aurN gnome-system-monitor-2.12.2.orig/gnome-system-monitor.desktop.in.in gnome-system-monitor-2.12.2/gnome-system-monitor.desktop.in.in
---- gnome-system-monitor-2.12.2.orig/gnome-system-monitor.desktop.in.in	2005-11-29 09:32:19.000000000 +0100
-+++ gnome-system-monitor-2.12.2/gnome-system-monitor.desktop.in.in	2005-11-29 18:05:02.000000000 +0100
+diff -aurN gnome-system-monitor-2.13.90.orig/gnome-system-monitor.desktop.in.in gnome-system-monitor-2.13.90/gnome-system-monitor.desktop.in.in
+--- gnome-system-monitor-2.13.90.orig/gnome-system-monitor.desktop.in.in	2006-01-29 20:05:56.000000000 +0100
++++ gnome-system-monitor-2.13.90/gnome-system-monitor.desktop.in.in	2006-02-01 21:53:23.361476000 +0100
 @@ -8,7 +8,7 @@
  Terminal=false
  Type=Application
  StartupNotify=true
--Categories=Application;System;Monitor;X-Red-Hat-Base
+-Categories=GNOME;GTK;Application;System;Monitor;X-Red-Hat-Base;
 +Categories=GTK;GNOME;System;Monitor;
  X-GNOME-Bugzilla-Bugzilla=GNOME
  X-GNOME-Bugzilla-Product=system-monitor
