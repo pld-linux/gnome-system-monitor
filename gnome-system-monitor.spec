@@ -9,23 +9,26 @@ Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-system-monitor/2.14/%{name
 # Source0-md5:	8d690176629b8b2b3e4d4f93d98d57f0
 Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 2.10.0
+BuildRequires:	GConf2-devel >= 2.14.0
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	glib2-devel >= 1:2.9.1
 BuildRequires:	gnome-common >= 2.8.0-2
-BuildRequires:	gnome-vfs2-devel >= 2.11.0
+BuildRequires:	gnome-vfs2-devel >= 2.14.0
 BuildRequires:	gtk+2-devel >= 2:2.8.0
 BuildRequires:	libgksu-devel >= 0.15.0
-BuildRequires:	libgnomeui-devel >= 2.11.1
+BuildRequires:	libgnomeui-devel >= 2.14.0
 BuildRequires:	libgtop-devel >= 1:2.14.0
 BuildRequires:	libselinux-devel
-BuildRequires:	libwnck-devel >= 2.11.91
+BuildRequires:	libwnck-devel >= 2.14.1
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper
 Requires(post,preun):	GConf2
 Requires(post,postun):	scrollkeeper
+Requires:	libgnomeui >= 2.14.0
+Requires:	libgtop >= 1:2.14.0
+Requires:	libwnck >= 2.14.1
 Obsoletes:	procman
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
