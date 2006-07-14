@@ -1,34 +1,34 @@
 Summary:	Simple process monitor
 Summary(pl):	Prosty monitor procesów
 Name:		gnome-system-monitor
-Version:	2.15.0
+Version:	2.15.4
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-system-monitor/2.15/%{name}-%{version}.tar.bz2
-# Source0-md5:	918008502532998c8c4961a39027d7df
+# Source0-md5:	f1ae8e398b3f824c2d4807d9faedf241
 Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.14.0
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	glib2-devel >= 1:2.11.4
+BuildRequires:	glib2-devel >= 1:2.12.0
 BuildRequires:	gnome-common >= 2.12.0
-BuildRequires:	gnome-vfs2-devel >= 2.15.2
-BuildRequires:	gtk+2-devel >= 2:2.9.4
+BuildRequires:	gnome-vfs2-devel >= 2.15.3
+BuildRequires:	gtk+2-devel >= 2:2.10.0
 BuildRequires:	libgksu-devel >= 1.3.8
-BuildRequires:	libgnomeui-devel >= 2.15.1
+BuildRequires:	libgnomeui-devel >= 2.15.2
 BuildRequires:	libgtop-devel >= 1:2.14.1
 BuildRequires:	libselinux-devel
-BuildRequires:	libwnck-devel >= 2.15.3
+BuildRequires:	libwnck-devel >= 2.15.4
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper
 Requires(post,preun):	GConf2 >= 2.14.0
 Requires(post,postun):	scrollkeeper
-Requires:	libgnomeui >= 2.15.1
+Requires:	libgnomeui >= 2.15.2
 Requires:	libgtop >= 1:2.14.1
-Requires:	libwnck >= 2.15.3
+Requires:	libwnck >= 2.15.4
 Obsoletes:	procman
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -47,6 +47,7 @@ Jest to prosty monitor procesów i systemu.
 %{__aclocal}
 %{__autoconf}
 %{__automake}
+LDFLAGS="%{rpmldflags} -Wl,--as-needed"
 %configure \
 	--disable-schemas-install \
 	--enable-selinux
@@ -81,5 +82,5 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/gnome-system-monitor
 %{_desktopdir}/*
-%{_sysconfdir}/gconf/schemas/*
+%{_sysconfdir}/gconf/schemas/gnome-system-monitor.schemas
 %{_omf_dest_dir}/%{name}
