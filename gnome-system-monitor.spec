@@ -60,8 +60,6 @@ rm -rf $RPM_BUILD_ROOT
 	omf_dest_dir=%{_omf_dest_dir}/%{name} \
 	GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
 
-rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/ug
-
 %find_lang %{name} --with-gnome
 
 %clean
