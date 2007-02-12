@@ -1,5 +1,5 @@
 Summary:	Simple process monitor
-Summary(pl):	Prosty monitor procesów
+Summary(pl.UTF-8):   Prosty monitor procesÃ³w
 Name:		gnome-system-monitor
 Version:	2.16.1
 Release:	1
@@ -35,8 +35,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 This is a simple process and system monitor.
 
-%description -l pl
-Jest to prosty monitor procesów i systemu.
+%description -l pl.UTF-8
+Jest to prosty monitor procesÃ³w i systemu.
 
 %prep
 %setup -q
