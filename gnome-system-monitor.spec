@@ -1,5 +1,5 @@
 Summary:	Simple process monitor
-Summary(pl.UTF-8):   Prosty monitor procesów
+Summary(pl.UTF-8):	Prosty monitor procesów
 Name:		gnome-system-monitor
 Version:	2.16.1
 Release:	1
