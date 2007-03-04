@@ -1,33 +1,33 @@
 Summary:	Simple process monitor
 Summary(pl.UTF-8):	Prosty monitor procesów
 Name:		gnome-system-monitor
-Version:	2.16.1
+Version:	2.17.95
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-system-monitor/2.16/%{name}-%{version}.tar.bz2
-# Source0-md5:	37b44e0e84865fc0aba8bfd4bbdf2338
+Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-system-monitor/2.17/%{name}-%{version}.tar.bz2
+# Source0-md5:	e76c59b47578c8724abf1caae918758f
 Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 2.14.0
-BuildRequires:	autoconf
+BuildRequires:	GConf2-devel >= 2.18.0
+BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
-BuildRequires:	glib2-devel >= 1:2.12.4
+BuildRequires:	glib2-devel >= 1:2.12.9
 BuildRequires:	gnome-common >= 2.12.0
-BuildRequires:	gnome-vfs2-devel >= 2.16.1
-BuildRequires:	gtk+2-devel >= 2:2.10.5
-BuildRequires:	libgksu-devel >= 1.3.8
-BuildRequires:	libgnomeui-devel >= 2.16.0
-BuildRequires:	libgtop-devel >= 1:2.14.4
+BuildRequires:	gnome-icon-theme >= 2.17.91
+BuildRequires:	gnome-vfs2-devel >= 2.17.91
+BuildRequires:	gtk+2-devel >= 2:2.10.9
+BuildRequires:	intltool >= 0.35.5
+#BuildRequires:	libgksu-devel >= 1.3.8
+BuildRequires:	libgtop-devel >= 1:2.14.8
 BuildRequires:	libselinux-devel
-BuildRequires:	libwnck-devel >= 2.16.1
-BuildRequires:	pkgconfig
+BuildRequires:	libwnck-devel >= 2.17.92
+BuildRequires:	pkgconfig >= 1:0.19
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	scrollkeeper
-Requires(post,preun):	GConf2 >= 2.14.0
 Requires(post,postun):	scrollkeeper
-Requires:	libgnomeui >= 2.16.0
-Requires:	libgtop >= 1:2.14.4
+Requires(post,preun):	GConf2 >= 2.14.0
+Requires:	libgtop >= 1:2.14.8
 Requires:	libwnck >= 2.16.1
 Obsoletes:	procman
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -44,11 +44,13 @@ Jest to prosty monitor procesów i systemu.
 
 %build
 %{__gnome_doc_common}
+%{__intltoolize}
 %{__aclocal}
 %{__autoconf}
 %{__automake}
 %configure \
 	--disable-schemas-install \
+	--disable-scrollkeeper \
 	--enable-selinux
 %{__make}
 
@@ -79,5 +81,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/gnome-system-monitor
 %{_desktopdir}/*.desktop
+%{_pixmapsdir}/gnome-system-monitor
 %{_sysconfdir}/gconf/schemas/gnome-system-monitor.schemas
 %{_omf_dest_dir}/%{name}
