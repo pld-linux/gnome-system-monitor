@@ -1,32 +1,32 @@
 Summary:	Simple process monitor
 Summary(pl.UTF-8):	Prosty monitor procesów
 Name:		gnome-system-monitor
-Version:	2.18.2
+Version:	2.20.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-system-monitor/2.18/%{name}-%{version}.tar.bz2
-# Source0-md5:	860047e636522af2c068dddb5df883bd
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-system-monitor/2.20/%{name}-%{version}.tar.bz2
+# Source0-md5:	52d02162cecd0174536148197024126d
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 2.18.0.1
+BuildRequires:	GConf2-devel >= 2.19.1
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
-BuildRequires:	glib2-devel >= 1:2.12.11
+BuildRequires:	glib2-devel >= 1:2.14.0
 BuildRequires:	gnome-common >= 2.18.0
-BuildRequires:	gnome-icon-theme >= 2.18.0
-BuildRequires:	gnome-vfs2-devel >= 2.18.0.1
-BuildRequires:	gtk+2-devel >= 2:2.10.10
-BuildRequires:	intltool >= 0.35.5
-BuildRequires:	libgtop-devel >= 1:2.14.8
+BuildRequires:	gnome-icon-theme >= 2.20.0
+BuildRequires:	gnome-vfs2-devel >= 2.20.0
+BuildRequires:	gtk+2-devel >= 2:2.12.0
+BuildRequires:	intltool >= 0.36.1
+BuildRequires:	libgtop-devel >= 1:2.20.0
 BuildRequires:	libselinux-devel
-BuildRequires:	libwnck-devel >= 2.18.2
+BuildRequires:	libwnck-devel >= 2.20.0
 BuildRequires:	pkgconfig >= 1:0.19
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	scrollkeeper
 Requires(post,postun):	scrollkeeper
 Requires(post,preun):	GConf2
-Requires:	libgtop >= 1:2.14.8
-Requires:	libwnck >= 2.18.2
+Requires:	libgtop >= 1:2.20.0
+Requires:	libwnck >= 2.20.0
 Obsoletes:	procman
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -80,4 +80,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/*.desktop
 %{_pixmapsdir}/gnome-system-monitor
 %{_sysconfdir}/gconf/schemas/gnome-system-monitor.schemas
-%{_omf_dest_dir}/%{name}
+%dir %{_omf_dest_dir}/%{name}
+%{_omf_dest_dir}/gnome-system-monitor/gnome-system-monitor-C.omf
+%lang(bg) %{_omf_dest_dir}/gnome-system-monitor/gnome-system-monitor-bg.omf
+%lang(ca) %{_omf_dest_dir}/gnome-system-monitor/gnome-system-monitor-ca.omf
+%lang(es) %{_omf_dest_dir}/gnome-system-monitor/gnome-system-monitor-es.omf
+%lang(fr) %{_omf_dest_dir}/gnome-system-monitor/gnome-system-monitor-fr.omf
+%lang(oc) %{_omf_dest_dir}/gnome-system-monitor/gnome-system-monitor-oc.omf
+%lang(pa) %{_omf_dest_dir}/gnome-system-monitor/gnome-system-monitor-pa.omf
+%lang(sv) %{_omf_dest_dir}/gnome-system-monitor/gnome-system-monitor-sv.omf
