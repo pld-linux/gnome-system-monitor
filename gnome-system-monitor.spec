@@ -16,6 +16,7 @@ BuildRequires:	gnome-common >= 2.18.0
 BuildRequires:	gnome-icon-theme >= 2.20.0
 BuildRequires:	gnome-vfs2-devel >= 2.20.0
 BuildRequires:	gtk+2-devel >= 2:2.12.0
+BuildRequires:	gtkmm-devel
 BuildRequires:	intltool >= 0.36.1
 BuildRequires:	libgtop-devel >= 1:2.20.0
 BuildRequires:	libselinux-devel
