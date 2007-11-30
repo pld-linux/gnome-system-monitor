@@ -2,7 +2,7 @@ Summary:	Simple process monitor
 Summary(pl.UTF-8):	Prosty monitor procesów
 Name:		gnome-system-monitor
 Version:	2.20.1
-Release:	2
+Release:	3
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-system-monitor/2.20/%{name}-%{version}.tar.bz2
@@ -22,8 +22,10 @@ BuildRequires:	libgtop-devel >= 1:2.20.0
 BuildRequires:	libselinux-devel
 BuildRequires:	libwnck-devel >= 2.20.0
 BuildRequires:	pkgconfig >= 1:0.19
+BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	scrollkeeper
+BuildRequires:	sed >= 4.0
 Requires(post,postun):	scrollkeeper
 Requires(post,preun):	GConf2
 Requires:	libgtop >= 1:2.20.0
@@ -41,6 +43,9 @@ Jest to prosty monitor procesów i systemu.
 
 %prep
 %setup -q
+
+sed -i -e 's#sr\@Latn#sr\@latin#' po/LINGUAS
+mv po/sr\@{Latn,latin}.po
 
 %build
 %{__gnome_doc_common}
@@ -62,9 +67,7 @@ rm -rf $RPM_BUILD_ROOT
 	omf_dest_dir=%{_omf_dest_dir}/%{name} \
 	GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
 
-[ -d $RPM_BUILD_ROOT%{_datadir}/locale/sr@latin ] || \
-	mv -f $RPM_BUILD_ROOT%{_datadir}/locale/sr@{Latn,latin}
-%find_lang %{name} --with-gnome
+%find_lang %{name} --with-gnome --with-omf
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -85,12 +88,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/*.desktop
 %{_pixmapsdir}/gnome-system-monitor
 %{_sysconfdir}/gconf/schemas/gnome-system-monitor.schemas
-%dir %{_omf_dest_dir}/%{name}
-%{_omf_dest_dir}/gnome-system-monitor/gnome-system-monitor-C.omf
-%lang(bg) %{_omf_dest_dir}/gnome-system-monitor/gnome-system-monitor-bg.omf
-%lang(ca) %{_omf_dest_dir}/gnome-system-monitor/gnome-system-monitor-ca.omf
-%lang(es) %{_omf_dest_dir}/gnome-system-monitor/gnome-system-monitor-es.omf
-%lang(fr) %{_omf_dest_dir}/gnome-system-monitor/gnome-system-monitor-fr.omf
-%lang(oc) %{_omf_dest_dir}/gnome-system-monitor/gnome-system-monitor-oc.omf
-%lang(pa) %{_omf_dest_dir}/gnome-system-monitor/gnome-system-monitor-pa.omf
-%lang(sv) %{_omf_dest_dir}/gnome-system-monitor/gnome-system-monitor-sv.omf
