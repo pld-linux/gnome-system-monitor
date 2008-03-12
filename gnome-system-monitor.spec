@@ -1,26 +1,26 @@
 Summary:	Simple process monitor
 Summary(pl.UTF-8):	Prosty monitor procesów
 Name:		gnome-system-monitor
-Version:	2.20.2
+Version:	2.22.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-system-monitor/2.20/%{name}-%{version}.tar.bz2
-# Source0-md5:	d5e52f923b0b725b3a49e4bb7a296436
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-system-monitor/2.22/%{name}-%{version}.tar.bz2
+# Source0-md5:	7b809a4db72902ca5f47a63f62917d14
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 2.20.0
+BuildRequires:	GConf2-devel >= 2.22.0
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
-BuildRequires:	glib2-devel >= 1:2.14.2
+BuildRequires:	glib2-devel >= 1:2.16.0
 BuildRequires:	gnome-common >= 2.20.0
-BuildRequires:	gnome-icon-theme >= 2.20.0
-BuildRequires:	gnome-vfs2-devel >= 2.20.0
+BuildRequires:	gnome-icon-theme >= 2.22.0
+BuildRequires:	gnome-vfs2-devel >= 2.22.0
 BuildRequires:	gtk+2-devel >= 2:2.12.0
 BuildRequires:	gtkmm-devel
 BuildRequires:	intltool >= 0.36.1
-BuildRequires:	libgtop-devel >= 1:2.20.0
+BuildRequires:	libgtop-devel >= 1:2.22.0
 BuildRequires:	libselinux-devel
-BuildRequires:	libwnck-devel >= 2.20.0
+BuildRequires:	libwnck-devel >= 2.22.0
 BuildRequires:	pkgconfig >= 1:0.19
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.311
@@ -28,8 +28,8 @@ BuildRequires:	scrollkeeper
 BuildRequires:	sed >= 4.0
 Requires(post,postun):	scrollkeeper
 Requires(post,preun):	GConf2
-Requires:	libgtop >= 1:2.20.0
-Requires:	libwnck >= 2.20.0
+Requires:	libgtop >= 1:2.22.0
+Requires:	libwnck >= 2.22.0
 Obsoletes:	procman
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
