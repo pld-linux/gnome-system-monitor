@@ -1,26 +1,31 @@
 Summary:	Simple process monitor
 Summary(pl.UTF-8):	Prosty monitor procesów
 Name:		gnome-system-monitor
-Version:	2.22.0
+Version:	2.22.1
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-system-monitor/2.22/%{name}-%{version}.tar.bz2
-# Source0-md5:	7b809a4db72902ca5f47a63f62917d14
+# Source0-md5:	cbf622e13f4fbda996ce8a06d95b83b3
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.22.0
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
+BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= 1:2.16.0
 BuildRequires:	gnome-common >= 2.20.0
+BuildRequires:	gnome-doc-utils >= 0.12.0
 BuildRequires:	gnome-icon-theme >= 2.22.0
 BuildRequires:	gnome-vfs2-devel >= 2.22.0
 BuildRequires:	gtk+2-devel >= 2:2.12.0
 BuildRequires:	gtkmm-devel
-BuildRequires:	intltool >= 0.36.1
+BuildRequires:	intltool >= 0.36.2
 BuildRequires:	libgtop-devel >= 1:2.22.0
+BuildRequires:	librsvg-devel >= 2.22.0
 BuildRequires:	libselinux-devel
+BuildRequires:	libtool
 BuildRequires:	libwnck-devel >= 2.22.0
+BuildRequires:	libxml2-devel >= 1:2.6.31
 BuildRequires:	pkgconfig >= 1:0.19
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.311
@@ -44,14 +49,16 @@ Jest to prosty monitor procesów i systemu.
 %prep
 %setup -q
 
-sed -i -e 's#sr\@Latn#sr\@latin#' po/LINGUAS
-mv po/sr\@{Latn,latin}.po
+sed -i -e 's#sr@Latn#sr@latin#' po/LINGUAS
+mv po/sr@{Latn,latin}.po
 
 %build
 %{__gnome_doc_common}
 %{__intltoolize}
+%{__libtoolize}
 %{__aclocal}
 %{__autoconf}
+%{__autoheader}
 %{__automake}
 %configure \
 	--disable-schemas-install \
@@ -85,6 +92,6 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/gnome-system-monitor
-%{_desktopdir}/*.desktop
+%{_desktopdir}/gnome-system-monitor.desktop
 %{_pixmapsdir}/gnome-system-monitor
 %{_sysconfdir}/gconf/schemas/gnome-system-monitor.schemas
