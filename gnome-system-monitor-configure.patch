@@ -1,0 +1,10 @@
+--- gnome-system-monitor-2.23.5/configure.in~	2008-07-21 18:20:02.000000000 +0200
++++ gnome-system-monitor-2.23.5/configure.in	2008-07-23 23:40:42.990781172 +0200
+@@ -17,6 +17,7 @@
+ 
+ AC_ISC_POSIX
+ AC_PROG_CC
++AC_PROG_CXX
+ AC_LANG_CPLUSPLUS
+ AC_LANG_COMPILER_REQUIRE
+ AM_PROG_CC_STDC
