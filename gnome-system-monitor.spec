@@ -1,12 +1,12 @@
 Summary:	Simple process monitor
 Summary(pl.UTF-8):	Prosty monitor procesów
 Name:		gnome-system-monitor
-Version:	2.23.90
+Version:	2.23.91
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-system-monitor/2.23/%{name}-%{version}.tar.bz2
-# Source0-md5:	6f19bc3a4a1a210892bbed9aa1fde676
+# Source0-md5:	f465d83c11fcb573c970d41de5c4c4cd
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.22.0
 BuildRequires:	autoconf >= 2.52
@@ -49,9 +49,6 @@ Jest to prosty monitor procesów i systemu.
 
 %prep
 %setup -q
-
-sed -i -e 's#sr@Latn#sr@latin#' po/LINGUAS
-mv po/sr@{Latn,latin}.po
 
 %build
 %{__gnome_doc_common}
