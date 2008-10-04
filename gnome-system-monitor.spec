@@ -1,19 +1,19 @@
 Summary:	Simple process monitor
 Summary(pl.UTF-8):	Prosty monitor procesów
 Name:		gnome-system-monitor
-Version:	2.22.3
+Version:	2.24.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-system-monitor/2.22/%{name}-%{version}.tar.bz2
-# Source0-md5:	06a162294f63cc7c931f78b73d4043b7
-Patch0:		%{name}-configure.in.patch
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-system-monitor/2.24/%{name}-%{version}.tar.bz2
+# Source0-md5:	edd7f02e30683054b94a89aa62c74d1e
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.22.0
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= 1:2.16.0
+BuildRequires:	glibmm-devel >= 2.16.2
 BuildRequires:	gnome-common >= 2.20.0
 BuildRequires:	gnome-doc-utils >= 0.12.0
 BuildRequires:	gnome-icon-theme >= 2.22.0
@@ -21,7 +21,7 @@ BuildRequires:	gnome-vfs2-devel >= 2.22.0
 BuildRequires:	gtk+2-devel >= 2:2.12.0
 BuildRequires:	gtkmm-devel
 BuildRequires:	intltool >= 0.36.2
-BuildRequires:	libgtop-devel >= 1:2.22.0
+BuildRequires:	libgtop-devel >= 1:2.23.4
 BuildRequires:	librsvg-devel >= 2.22.0
 BuildRequires:	libselinux-devel
 BuildRequires:	libtool
@@ -49,10 +49,6 @@ Jest to prosty monitor procesów i systemu.
 
 %prep
 %setup -q
-%patch0 -p1
-
-sed -i -e 's#sr@Latn#sr@latin#' po/LINGUAS
-mv po/sr@{Latn,latin}.po
 
 %build
 %{__gnome_doc_common}
