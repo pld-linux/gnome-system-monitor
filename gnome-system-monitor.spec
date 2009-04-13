@@ -1,22 +1,22 @@
 Summary:	Simple process monitor
 Summary(pl.UTF-8):	Prosty monitor procesów
 Name:		gnome-system-monitor
-Version:	2.26.0.1
+Version:	2.26.1
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-system-monitor/2.26/%{name}-%{version}.tar.bz2
-# Source0-md5:	553de9c4912f4af25f92a3380626c0f1
+# Source0-md5:	105eaf7f64a19848d5fe94e4cd4e4189
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 2.24.0
+BuildRequires:	GConf2-devel >= 2.26.0
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
+BuildRequires:	dbus-glib-devel >= 0.74
 BuildRequires:	gettext-devel
 BuildRequires:	glibmm-devel >= 2.16.2
 BuildRequires:	gnome-common >= 2.24.0
 BuildRequires:	gnome-doc-utils >= 0.14.0
 BuildRequires:	gnome-icon-theme >= 2.24.0
-BuildRequires:	gtk+2-devel >= 2:2.12.0
 BuildRequires:	gtkmm-devel >= 2.12.0
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libgtop-devel >= 1:2.24.0
@@ -56,8 +56,7 @@ Jest to prosty monitor procesów i systemu.
 %{__automake}
 %configure \
 	--disable-schemas-install \
-	--disable-scrollkeeper \
-	--enable-selinux
+	--disable-scrollkeeper
 %{__make}
 
 %install
