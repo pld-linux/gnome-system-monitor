@@ -24,6 +24,7 @@ BuildRequires:	librsvg-devel >= 2.22.0
 BuildRequires:	libtool
 BuildRequires:	libwnck-devel >= 2.24.0
 BuildRequires:	libxml2-devel >= 1:2.6.31
+BuildRequires:	libxml2-progs
 BuildRequires:	pkgconfig >= 1:0.19
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.311
