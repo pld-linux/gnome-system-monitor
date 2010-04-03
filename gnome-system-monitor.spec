@@ -48,6 +48,9 @@ Jest to prosty monitor procesów i systemu.
 %prep
 %setup -q
 
+%{__sed} -i -e 's/^en@shaw//' po/LINGUAS
+rm -f po/en@shaw.po
+
 %build
 %{__gnome_doc_common}
 %{__intltoolize}
