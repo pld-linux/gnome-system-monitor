@@ -1,29 +1,29 @@
 Summary:	Simple process monitor
 Summary(pl.UTF-8):	Prosty monitor procesów
 Name:		gnome-system-monitor
-Version:	2.28.2
+Version:	2.99.2
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-system-monitor/2.28/%{name}-%{version}.tar.bz2
-# Source0-md5:	3f0bca9b0ebc7a365466851cd580d167
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-system-monitor/2.99/%{name}-%{version}.tar.bz2
+# Source0-md5:	9d0a87507ebcae46bbd9e36b1ac58ac1
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 2.26.0
-BuildRequires:	autoconf >= 2.52
-BuildRequires:	automake
-BuildRequires:	dbus-glib-devel >= 0.74
+BuildRequires:	autoconf >= 2.63
+BuildRequires:	automake >= 1.11
 BuildRequires:	docbook-dtd412-xml
-BuildRequires:	gettext-devel
-BuildRequires:	glibmm-devel >= 2.16.2
+BuildRequires:	gettext-devel >= 0.17
+BuildRequires:	glibmm-devel >= 2.27.0
+BuildRequires:	glib2-devel >= 1:2.28.0
 BuildRequires:	gnome-common >= 2.24.0
-BuildRequires:	gnome-doc-utils >= 0.14.0
-BuildRequires:	gnome-icon-theme >= 2.24.0
-BuildRequires:	gtkmm-devel >= 2.12.0
-BuildRequires:	intltool >= 0.40.0
-BuildRequires:	libgtop-devel >= 1:2.24.0
+BuildRequires:	gnome-doc-utils >= 0.20.0
+BuildRequires:	gnome-icon-theme >= 2.31.0
+BuildRequires:	gtkmm3-devel >= 2.99
+BuildRequires:	gtk+3-devel >= 3.0.0
+BuildRequires:	intltool >= 0.41.0
+BuildRequires:	libgtop-devel >= 1:2.28.2
 BuildRequires:	librsvg-devel >= 2.22.0
-BuildRequires:	libtool
-BuildRequires:	libwnck-devel >= 2.24.0
+BuildRequires:	libtool >= 2.2
+BuildRequires:	libwnck-devel >= 2.91.0
 BuildRequires:	libxml2-devel >= 1:2.6.31
 BuildRequires:	libxml2-progs
 BuildRequires:	pkgconfig >= 1:0.19
@@ -32,8 +32,7 @@ BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	scrollkeeper
 Requires(post,postun):	scrollkeeper
 Requires(post,preun):	GConf2
-Requires:	libgtop >= 1:2.24.0
-Requires:	libwnck >= 2.24.0
+Requires:	libgtop >= 1:2.28.2
 Obsoletes:	procman
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
@@ -48,9 +47,6 @@ Jest to prosty monitor procesów i systemu.
 %prep
 %setup -q
 
-%{__sed} -i -e 's/^en@shaw//' po/LINGUAS
-rm -f po/en@shaw.po
-
 %build
 %{__gnome_doc_common}
 %{__intltoolize}
@@ -60,7 +56,8 @@ rm -f po/en@shaw.po
 %{__autoheader}
 %{__automake}
 %configure \
-	--disable-schemas-install \
+	--disable-silent-rules \
+	--disable-schemas-compile \
 	--disable-scrollkeeper
 %{__make}
 
@@ -76,13 +73,11 @@ rm -rf $RPM_BUILD_ROOT
 rm -rf $RPM_BUILD_ROOT
 
 %post
-%gconf_schema_install gnome-system-monitor.schemas
+%glib_compile_schemas
 %scrollkeeper_update_post
 
-%preun
-%gconf_schema_uninstall gnome-system-monitor.schemas
-
 %postun
+%glib_compile_schemas
 %scrollkeeper_update_postun
 
 %files -f %{name}.lang
@@ -90,4 +85,5 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/gnome-system-monitor
 %{_desktopdir}/gnome-system-monitor.desktop
 %{_pixmapsdir}/gnome-system-monitor
-%{_sysconfdir}/gconf/schemas/gnome-system-monitor.schemas
+%{_datadir}/glib-2.0/schemas/org.gnome.gnome-system-monitor.enums.xml
+%{_datadir}/glib-2.0/schemas/org.gnome.gnome-system-monitor.gschema.xml
