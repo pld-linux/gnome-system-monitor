@@ -43,13 +43,10 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 This is a simple process and system monitor.
 
 %description -l pl.UTF-8
-Jest to prosty monitor procesów i systemu.
+GNOME System Monitor to prosty monitor procesów i systemu.
 
 %prep
 %setup -q
-
-%{__sed} -i -e 's/^en@shaw//' po/LINGUAS
-rm -f po/en@shaw.po
 
 %build
 %{__gnome_doc_common}
