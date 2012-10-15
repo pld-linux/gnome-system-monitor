@@ -1,12 +1,12 @@
 Summary:	Simple process monitor
 Summary(pl.UTF-8):	Prosty monitor procesów
 Name:		gnome-system-monitor
-Version:	3.4.1
+Version:	3.6.1
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-system-monitor/3.4/%{name}-%{version}.tar.xz
-# Source0-md5:	a7cabd0d4302a02db0ce85ea81bd3421
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-system-monitor/3.6/%{name}-%{version}.tar.xz
+# Source0-md5:	a4f143e1f07455182a7119e9fcc604fc
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake >= 1.11
@@ -29,9 +29,8 @@ BuildRequires:	libxml2-progs
 BuildRequires:	pkgconfig >= 1:0.19
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.311
-BuildRequires:	scrollkeeper
+BuildRequires:	yelp-tools
 Requires(post,postun):	glib2 >= 1:2.26.0
-Requires(post,postun):	scrollkeeper
 Requires:	gnome-icon-theme >= 3.0.0
 Requires:	libgtop >= 1:2.28.2
 Obsoletes:	procman
@@ -49,7 +48,6 @@ GNOME System Monitor to prosty monitor procesów i systemu.
 %setup -q
 
 %build
-%{__gnome_doc_common}
 %{__intltoolize}
 %{__libtoolize}
 %{__aclocal}
@@ -75,11 +73,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 %glib_compile_schemas
-%scrollkeeper_update_post
 
 %postun
 %glib_compile_schemas
-%scrollkeeper_update_postun
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
@@ -87,6 +83,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/gnome-system-monitor.desktop
 %{_pixmapsdir}/gnome-system-monitor
 %dir %{_datadir}/gnome-system-monitor
+%{_datadir}/gnome-system-monitor/interface.ui
+%{_datadir}/gnome-system-monitor/lsof.ui
+%{_datadir}/gnome-system-monitor/openfiles.ui
 %{_datadir}/gnome-system-monitor/preferences.ui
+%{_datadir}/gnome-system-monitor/renice.ui
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-system-monitor.enums.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-system-monitor.gschema.xml
