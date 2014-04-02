@@ -4,27 +4,27 @@
 Summary:	Simple process monitor
 Summary(pl.UTF-8):	Prosty monitor procesów
 Name:		gnome-system-monitor
-Version:	3.8.2.1
+Version:	3.12.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-system-monitor/3.8/%{name}-%{version}.tar.xz
-# Source0-md5:	414cfebd9ff4a314692faa78a0a046b5
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-system-monitor/3.12/%{name}-%{version}.tar.xz
+# Source0-md5:	cfa3f50be4eceffe6a9f04149e535e3c
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake >= 1:1.11.1
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gettext-devel >= 0.17
-BuildRequires:	glib2-devel >= 1:2.28.0
+BuildRequires:	glib2-devel >= 1:2.38.0
 BuildRequires:	glibmm-devel >= 2.28.0
 BuildRequires:	gnome-common >= 2.24.0
 BuildRequires:	gnome-doc-utils >= 0.20.0
 BuildRequires:	gnome-icon-theme >= 3.0.0
-BuildRequires:	gtk+3-devel >= 3.6.0
+BuildRequires:	gtk+3-devel >= 3.10.0
 BuildRequires:	gtkmm3-devel >= 3.4.0
 BuildRequires:	intltool >= 0.41.0
 BuildRequires:	libgtop-devel >= 1:2.28.2
-BuildRequires:	librsvg-devel >= 2.22.0
+BuildRequires:	librsvg-devel >= 2.35.0
 BuildRequires:	libtool >= 2:2.2
 BuildRequires:	libwnck-devel >= 3.0.0
 BuildRequires:	libxml2-devel >= 1:2.6.31
@@ -87,11 +87,9 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/gnome-system-monitor
 %attr(755,root,root) %{_libdir}/gnome-system-monitor/gsm-kill
 %attr(755,root,root) %{_libdir}/gnome-system-monitor/gsm-renice
+%{_datadir}/appdata/gnome-system-monitor.appdata.xml
 %{_desktopdir}/gnome-system-monitor.desktop
 %{_desktopdir}/gnome-system-monitor-kde.desktop
-%{_pixmapsdir}/gnome-system-monitor
-%dir %{_datadir}/gnome-system-monitor
-%{_datadir}/gnome-system-monitor/*.ui
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-system-monitor.enums.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-system-monitor.gschema.xml
 %{_datadir}/polkit-1/actions/org.gnome.gnome-system-monitor.policy
