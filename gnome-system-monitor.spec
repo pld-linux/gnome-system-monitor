@@ -4,12 +4,12 @@
 Summary:	Simple process monitor
 Summary(pl.UTF-8):	Prosty monitor procesów
 Name:		gnome-system-monitor
-Version:	3.12.2
-Release:	3
+Version:	3.18.2
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-system-monitor/3.12/%{name}-%{version}.tar.xz
-# Source0-md5:	dc9f4ffa25ebee2795821251ef0d73db
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-system-monitor/3.18/%{name}-%{version}.tar.xz
+# Source0-md5:	7979c3d773aa72924dd539f6bcedf367
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake >= 1:1.11.1
@@ -18,13 +18,13 @@ BuildRequires:	gettext-tools >= 0.17
 BuildRequires:	glib2-devel >= 1:2.38.0
 BuildRequires:	glibmm-devel >= 2.28.0
 BuildRequires:	gnome-common >= 2.24.0
-BuildRequires:	gnome-doc-utils >= 0.20.0
 BuildRequires:	gnome-icon-theme >= 3.0.0
-BuildRequires:	gtk+3-devel >= 3.10.0
+BuildRequires:	gtk+3-devel >= 3.12.0
 BuildRequires:	gtkmm3-devel >= 3.4.0
 BuildRequires:	intltool >= 0.41.0
 BuildRequires:	libgtop-devel >= 1:2.28.2
 BuildRequires:	librsvg-devel >= 2.35.0
+BuildRequires:	libstdc++-devel
 BuildRequires:	libtool >= 2:2.2
 BuildRequires:	libwnck-devel >= 3.0.0
 BuildRequires:	libxml2-devel >= 1:2.6.31
@@ -32,10 +32,14 @@ BuildRequires:	libxml2-progs
 BuildRequires:	pkgconfig >= 1:0.19
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.311
-%{?with_systemd:BuildRequires:	systemd-devel >= 43}
+%{?with_systemd:BuildRequires:	systemd-devel >= 44}
 BuildRequires:	yelp-tools
-Requires(post,postun):	glib2 >= 1:2.26.0
+Requires(post,postun):	glib2 >= 1:2.38.0
+Requires:	glib2 >= 1:2.38.0
+Requires:	glibmm >= 2.28.0
 Requires:	gnome-icon-theme >= 3.0.0
+Requires:	gtk+3 >= 3.12.0
+Requires:	gtkmm3 >= 3.4.0
 Requires:	libgtop >= 1:2.28.2
 Obsoletes:	procman
 # sr@Latn vs. sr@latin
