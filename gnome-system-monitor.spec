@@ -4,22 +4,22 @@
 Summary:	Simple process monitor
 Summary(pl.UTF-8):	Prosty monitor procesów
 Name:		gnome-system-monitor
-Version:	3.22.2
+Version:	3.24.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-system-monitor/3.22/%{name}-%{version}.tar.xz
-# Source0-md5:	5d12860ddcf55d7116602ae22b6793fd
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-system-monitor/3.24/%{name}-%{version}.tar.xz
+# Source0-md5:	14d6bc9d8b4978f2123f82c40ad6445f
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake >= 1:1.11.1
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gettext-tools >= 0.17
 BuildRequires:	glib2-devel >= 1:2.38.0
-BuildRequires:	glibmm-devel >= 2.28.0
+BuildRequires:	glibmm-devel >= 2.46.0
 BuildRequires:	gnome-common >= 2.24.0
 BuildRequires:	gnome-icon-theme >= 3.0.0
-BuildRequires:	gtk+3-devel >= 3.12.0
+BuildRequires:	gtk+3-devel >= 3.22.0
 BuildRequires:	gtkmm3-devel >= 3.4.0
 BuildRequires:	intltool >= 0.41.0
 BuildRequires:	libgtop-devel >= 1:2.28.2
@@ -36,9 +36,9 @@ BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	yelp-tools
 Requires(post,postun):	glib2 >= 1:2.38.0
 Requires:	glib2 >= 1:2.38.0
-Requires:	glibmm >= 2.28.0
+Requires:	glibmm >= 2.46.0
 Requires:	gnome-icon-theme >= 3.0.0
-Requires:	gtk+3 >= 3.12.0
+Requires:	gtk+3 >= 3.22.0
 Requires:	gtkmm3 >= 3.4.0
 Requires:	libgtop >= 1:2.28.2
 Obsoletes:	procman
