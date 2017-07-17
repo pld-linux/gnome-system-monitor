@@ -1,3 +1,4 @@
+#
 # Conditional build:
 %bcond_without	systemd		# systemd support
 #
@@ -24,7 +25,7 @@ BuildRequires:	gtkmm3-devel >= 3.4.0
 BuildRequires:	intltool >= 0.41.0
 BuildRequires:	libgtop-devel >= 1:2.28.2
 BuildRequires:	librsvg-devel >= 2.35.0
-BuildRequires:	libstdc++-devel
+BuildRequires:	libstdc++-devel >= 6:4.7
 BuildRequires:	libtool >= 2:2.2
 BuildRequires:	libwnck-devel >= 3.0.0
 BuildRequires:	libxml2-devel >= 1:2.6.31
@@ -41,6 +42,7 @@ Requires:	gnome-icon-theme >= 3.0.0
 Requires:	gtk+3 >= 3.22.0
 Requires:	gtkmm3 >= 3.4.0
 Requires:	libgtop >= 1:2.28.2
+Requires:	librsvg >= 2.35.0
 Obsoletes:	procman
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
