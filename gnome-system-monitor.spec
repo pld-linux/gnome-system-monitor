@@ -5,12 +5,12 @@
 Summary:	Simple process monitor
 Summary(pl.UTF-8):	Prosty monitor procesów
 Name:		gnome-system-monitor
-Version:	3.24.0
+Version:	3.26.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-system-monitor/3.24/%{name}-%{version}.tar.xz
-# Source0-md5:	14d6bc9d8b4978f2123f82c40ad6445f
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-system-monitor/3.26/%{name}-%{version}.tar.xz
+# Source0-md5:	fcd59867c07f8c4853b1e28d60cbc037
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake >= 1:1.11.1
@@ -23,7 +23,7 @@ BuildRequires:	gnome-icon-theme >= 3.0.0
 BuildRequires:	gtk+3-devel >= 3.22.0
 BuildRequires:	gtkmm3-devel >= 3.4.0
 BuildRequires:	intltool >= 0.41.0
-BuildRequires:	libgtop-devel >= 1:2.28.2
+BuildRequires:	libgtop-devel >= 1:2.38.0
 BuildRequires:	librsvg-devel >= 2.35.0
 BuildRequires:	libstdc++-devel >= 6:4.7
 BuildRequires:	libtool >= 2:2.2
@@ -41,7 +41,7 @@ Requires:	glibmm >= 2.46.0
 Requires:	gnome-icon-theme >= 3.0.0
 Requires:	gtk+3 >= 3.22.0
 Requires:	gtkmm3 >= 3.4.0
-Requires:	libgtop >= 1:2.28.2
+Requires:	libgtop >= 1:2.38.0
 Requires:	librsvg >= 2.35.0
 Obsoletes:	procman
 # sr@Latn vs. sr@latin
@@ -96,6 +96,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/appdata/gnome-system-monitor.appdata.xml
 %{_desktopdir}/gnome-system-monitor.desktop
 %{_desktopdir}/gnome-system-monitor-kde.desktop
+%{_datadir}/gnome-system-monitor
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-system-monitor.enums.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-system-monitor.gschema.xml
 %{_datadir}/polkit-1/actions/org.gnome.gnome-system-monitor.policy
