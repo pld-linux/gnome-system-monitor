@@ -5,24 +5,23 @@
 Summary:	Simple process monitor
 Summary(pl.UTF-8):	Prosty monitor procesów
 Name:		gnome-system-monitor
-Version:	3.26.0
+Version:	3.28.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-system-monitor/3.26/%{name}-%{version}.tar.xz
-# Source0-md5:	fcd59867c07f8c4853b1e28d60cbc037
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-system-monitor/3.28/%{name}-%{version}.tar.xz
+# Source0-md5:	b55b4e1e6e108f64859f079c8dbdcacc
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake >= 1:1.11.1
 BuildRequires:	docbook-dtd412-xml
-BuildRequires:	gettext-tools >= 0.17
-BuildRequires:	glib2-devel >= 1:2.38.0
+BuildRequires:	gettext-tools >= 0.19.8
+BuildRequires:	glib2-devel >= 1:2.56.0
 BuildRequires:	glibmm-devel >= 2.46.0
 BuildRequires:	gnome-common >= 2.24.0
 BuildRequires:	gnome-icon-theme >= 3.0.0
 BuildRequires:	gtk+3-devel >= 3.22.0
 BuildRequires:	gtkmm3-devel >= 3.4.0
-BuildRequires:	intltool >= 0.41.0
 BuildRequires:	libgtop-devel >= 1:2.38.0
 BuildRequires:	librsvg-devel >= 2.35.0
 BuildRequires:	libstdc++-devel >= 6:4.7
@@ -36,7 +35,7 @@ BuildRequires:	rpmbuild(macros) >= 1.311
 %{?with_systemd:BuildRequires:	systemd-devel >= 44}
 BuildRequires:	yelp-tools
 Requires(post,postun):	glib2 >= 1:2.38.0
-Requires:	glib2 >= 1:2.38.0
+Requires:	glib2 >= 1:2.56.0
 Requires:	glibmm >= 2.46.0
 Requires:	gnome-icon-theme >= 3.0.0
 Requires:	gtk+3 >= 3.22.0
@@ -58,7 +57,6 @@ GNOME System Monitor to prosty monitor procesów i systemu.
 %setup -q
 
 %build
-%{__intltoolize}
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
@@ -90,10 +88,10 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/gnome-system-monitor
-%dir %{_libdir}/gnome-system-monitor
-%attr(755,root,root) %{_libdir}/gnome-system-monitor/gsm-kill
-%attr(755,root,root) %{_libdir}/gnome-system-monitor/gsm-renice
-%{_datadir}/appdata/gnome-system-monitor.appdata.xml
+%dir %{_libexecdir}/gnome-system-monitor
+%attr(755,root,root) %{_libexecdir}/gnome-system-monitor/gsm-kill
+%attr(755,root,root) %{_libexecdir}/gnome-system-monitor/gsm-renice
+%{_datadir}/metainfo/gnome-system-monitor.appdata.xml
 %{_desktopdir}/gnome-system-monitor.desktop
 %{_desktopdir}/gnome-system-monitor-kde.desktop
 %{_datadir}/gnome-system-monitor
