@@ -5,15 +5,13 @@
 Summary:	Simple process monitor
 Summary(pl.UTF-8):	Prosty monitor procesów
 Name:		gnome-system-monitor
-Version:	3.28.0
+Version:	3.30.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-system-monitor/3.28/%{name}-%{version}.tar.xz
-# Source0-md5:	b55b4e1e6e108f64859f079c8dbdcacc
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-system-monitor/3.30/%{name}-%{version}.tar.xz
+# Source0-md5:	67e589dd973c3d3024ae95665508f9e9
 URL:		http://www.gnome.org/
-BuildRequires:	autoconf >= 2.63
-BuildRequires:	automake >= 1:1.11.1
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gettext-tools >= 0.19.8
 BuildRequires:	glib2-devel >= 1:2.56.0
@@ -29,6 +27,8 @@ BuildRequires:	libtool >= 2:2.2
 BuildRequires:	libwnck-devel >= 3.0.0
 BuildRequires:	libxml2-devel >= 1:2.6.31
 BuildRequires:	libxml2-progs
+BuildRequires:	meson
+BuildRequires:	ninja
 BuildRequires:	pkgconfig >= 1:0.19
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.311
@@ -57,22 +57,13 @@ GNOME System Monitor to prosty monitor procesów i systemu.
 %setup -q
 
 %build
-%{__libtoolize}
-%{__aclocal}
-%{__autoconf}
-%{__autoheader}
-%{__automake}
-%configure \
-	%{__enable_disable systemd systemd} \
-	--disable-silent-rules \
-	--disable-schemas-compile
-%{__make}
+%meson build
+%ninja_build -C build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+%ninja_install -C build
 
 %find_lang %{name} --with-gnome
 
@@ -98,3 +89,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-system-monitor.enums.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-system-monitor.gschema.xml
 %{_datadir}/polkit-1/actions/org.gnome.gnome-system-monitor.policy
+%{_iconsdir}/hicolor/*x*/apps/gnome-system-monitor.png
+%{_iconsdir}/hicolor/symbolic/apps/gnome-system-monitor-symbolic.svg
