@@ -6,12 +6,12 @@
 Summary:	Simple process monitor
 Summary(pl.UTF-8):	Prosty monitor procesów
 Name:		gnome-system-monitor
-Version:	3.32.1
+Version:	3.36.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-system-monitor/3.32/%{name}-%{version}.tar.xz
-# Source0-md5:	37356a1b8c20939adc6f47f739d2e49a
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-system-monitor/3.36/%{name}-%{version}.tar.xz
+# Source0-md5:	99f0d46ff2bc45ec407d383c93213acb
 URL:		http://www.gnome.org/
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gettext-tools >= 0.19.8
@@ -92,4 +92,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/gnome-system-monitor.desktop
 %{_desktopdir}/gnome-system-monitor-kde.desktop
 %{_iconsdir}/hicolor/scalable/apps/org.gnome.SystemMonitor.svg
+%{_iconsdir}/hicolor/scalable/apps/org.gnome.SystemMonitor.Devel.svg
 %{_iconsdir}/hicolor/symbolic/apps/org.gnome.SystemMonitor-symbolic.svg
