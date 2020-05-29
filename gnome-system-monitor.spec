@@ -6,13 +6,13 @@
 Summary:	Simple process monitor
 Summary(pl.UTF-8):	Prosty monitor procesów
 Name:		gnome-system-monitor
-Version:	3.36.0
+Version:	3.36.1
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-system-monitor/3.36/%{name}-%{version}.tar.xz
-# Source0-md5:	99f0d46ff2bc45ec407d383c93213acb
-URL:		http://www.gnome.org/
+# Source0-md5:	b1443ab12c3b7bcca940d28754e5b948
+URL:		https://www.gnome.org/
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gettext-tools >= 0.19.8
 BuildRequires:	glib2-devel >= 1:2.56.0
