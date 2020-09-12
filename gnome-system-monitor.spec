@@ -6,13 +6,13 @@
 Summary:	Simple process monitor
 Summary(pl.UTF-8):	Prosty monitor procesów
 Name:		gnome-system-monitor
-Version:	3.36.1
+Version:	3.38.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-system-monitor/3.36/%{name}-%{version}.tar.xz
-# Source0-md5:	b1443ab12c3b7bcca940d28754e5b948
-URL:		https://www.gnome.org/
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-system-monitor/3.38/%{name}-%{version}.tar.xz
+# Source0-md5:	0494ca62d2d59b5de5efc2eddef58463
+URL:		https://wiki.gnome.org/Apps/SystemMonitor
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gettext-tools >= 0.19.8
 BuildRequires:	glib2-devel >= 1:2.56.0
@@ -25,7 +25,7 @@ BuildRequires:	libstdc++-devel >= 6:4.7
 %{?with_wnck:BuildRequires:	libwnck-devel >= 3.0.0}
 BuildRequires:	libxml2-devel >= 1:2.6.31
 BuildRequires:	libxml2-progs
-BuildRequires:	meson >= 0.43.0
+BuildRequires:	meson >= 0.50.0
 BuildRequires:	ninja >= 1.5
 BuildRequires:	pkgconfig >= 1:0.19
 BuildRequires:	rpmbuild(find_lang) >= 1.23
