@@ -6,13 +6,14 @@
 Summary:	Simple process monitor
 Summary(pl.UTF-8):	Prosty monitor procesów
 Name:		gnome-system-monitor
-Version:	3.38.0
+Version:	40.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-system-monitor/3.38/%{name}-%{version}.tar.xz
-# Source0-md5:	0494ca62d2d59b5de5efc2eddef58463
+Source0:	https://download.gnome.org/sources/gnome-system-monitor/40/%{name}-%{version}.tar.xz
+# Source0-md5:	ac3cedfd5a61fbbecd1a2f05d8728de4
 URL:		https://wiki.gnome.org/Apps/SystemMonitor
+BuildRequires:	atkmm-devel >= 2.28
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gettext-tools >= 0.19.8
 BuildRequires:	glib2-devel >= 1:2.56.0
@@ -20,6 +21,7 @@ BuildRequires:	glibmm-devel >= 2.46.0
 BuildRequires:	gtk+3-devel >= 3.22.0
 BuildRequires:	gtkmm3-devel >= 3.4.0
 BuildRequires:	libgtop-devel >= 1:2.38.0
+BuildRequires:	libhandy1-devel >= 1.0.0
 BuildRequires:	librsvg-devel >= 2.35.0
 BuildRequires:	libstdc++-devel >= 6:4.7
 %{?with_wnck:BuildRequires:	libwnck-devel >= 3.0.0}
@@ -35,12 +37,14 @@ BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 BuildRequires:	yelp-tools
 Requires(post,postun):	glib2 >= 1:2.56.0
+Requires:	atkmm >= 2.28
 Requires:	glib2 >= 1:2.56.0
 Requires:	glibmm >= 2.46.0
 Requires:	gtk+3 >= 3.22.0
 Requires:	gtkmm3 >= 3.4.0
 Requires:	hicolor-icon-theme
 Requires:	libgtop >= 1:2.38.0
+Requires:	libhandy1 >= 1.0.0
 Requires:	librsvg >= 2.35.0
 Obsoletes:	procman
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -79,11 +83,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS MAINTAINERS NEWS README
+%doc AUTHORS MAINTAINERS NEWS README.md
 %attr(755,root,root) %{_bindir}/gnome-system-monitor
 %dir %{_libexecdir}/gnome-system-monitor
 %attr(755,root,root) %{_libexecdir}/gnome-system-monitor/gsm-kill
 %attr(755,root,root) %{_libexecdir}/gnome-system-monitor/gsm-renice
+%attr(755,root,root) %{_libexecdir}/gnome-system-monitor/gsm-taskset
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-system-monitor.enums.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-system-monitor.gschema.xml
 %{_datadir}/gnome-system-monitor
@@ -94,3 +99,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/scalable/apps/org.gnome.SystemMonitor.svg
 %{_iconsdir}/hicolor/scalable/apps/org.gnome.SystemMonitor.Devel.svg
 %{_iconsdir}/hicolor/symbolic/apps/org.gnome.SystemMonitor-symbolic.svg
+%{_iconsdir}/hicolor/symbolic/apps/speedometer-symbolic.svg
