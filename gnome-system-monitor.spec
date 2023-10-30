@@ -6,12 +6,12 @@
 Summary:	Simple process monitor
 Summary(pl.UTF-8):	Prosty monitor procesów
 Name:		gnome-system-monitor
-Version:	44.0
+Version:	45.0.2
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	https://download.gnome.org/sources/gnome-system-monitor/44/%{name}-%{version}.tar.xz
-# Source0-md5:	24563ad272c83af1617c5bcec98a175d
+Source0:	https://download.gnome.org/sources/gnome-system-monitor/45/%{name}-%{version}.tar.xz
+# Source0-md5:	83212d1ee4a4d0a40e0ffcfa4cdd896d
 Patch0:		%{name}-no-update.patch
 URL:		https://wiki.gnome.org/Apps/SystemMonitor
 BuildRequires:	atkmm-devel >= 2.28
