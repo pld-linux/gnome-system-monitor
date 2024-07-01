@@ -1,0 +1,131 @@
+--- gnome-system-monitor-46.0/src/legacy/gsm_color_button.c.orig	2024-03-16 20:12:56.000000000 +0100
++++ gnome-system-monitor-46.0/src/legacy/gsm_color_button.c	2024-06-30 22:37:19.727819121 +0200
+@@ -348,13 +348,13 @@ gsm_color_button_snapshot (GtkWidget   *
+ }
+ 
+ static void
+-gsm_color_button_measure (GtkWidget*,
++gsm_color_button_measure (GtkWidget* w_ __attribute__((unused)),
+                           GtkOrientation orientation,
+-                          int,
++                          int i_ __attribute__((unused)),
+                           int           *minimum,
+                           int           *natural,
+-                          int*,
+-                          int*)
++                          int* ip1_ __attribute__((unused)),
++                          int* ip2_ __attribute__((unused)))
+ {
+   if (orientation & GTK_ORIENTATION_HORIZONTAL)
+     {
+@@ -375,7 +375,7 @@ gsm_color_button_state_flags_changed (Gt
+ }
+ 
+ static void
+-dialog_response (GtkDialog*,
++dialog_response (GtkDialog* d_ __attribute__((unused)),
+                  gint            response,
+                  GsmColorButton *color_button)
+ {
+@@ -398,7 +398,7 @@ dialog_response (GtkDialog*,
+ }
+ 
+ static void
+-dialog_destroy (GtkWidget*,
++dialog_destroy (GtkWidget* w_ __attribute__((unused)),
+                 GsmColorButton *color_button)
+ {
+   GsmColorButtonPrivate *priv = gsm_color_button_get_instance_private (color_button);
+@@ -407,10 +407,10 @@ dialog_destroy (GtkWidget*,
+ }
+ 
+ static void
+-gsm_color_button_released (GtkGestureClick*,
+-                           gint,
+-                           gdouble,
+-                           gdouble,
++gsm_color_button_released (GtkGestureClick* c_ __attribute__((unused)),
++                           gint i_ __attribute__((unused)),
++                           gdouble d1_ __attribute__((unused)),
++                           gdouble d2_ __attribute__((unused)),
+                            GsmColorButton *color_button)
+ {
+   GsmColorButtonPrivate *priv = gsm_color_button_get_instance_private (color_button);
+@@ -444,10 +444,10 @@ gsm_color_button_released (GtkGestureCli
+ }
+ 
+ static gboolean
+-gsm_color_button_drag_data_drop (GtkDropTarget*,
++gsm_color_button_drag_data_drop (GtkDropTarget* t_ __attribute__((unused)),
+                                  const GValue *value,
+-                                 gdouble,
+-                                 gdouble,
++                                 gdouble d1_ __attribute__((unused)),
++                                 gdouble d2_ __attribute__((unused)),
+                                  GsmColorButton *color_button)
+ {
+   if (G_VALUE_HOLDS (value, GDK_TYPE_RGBA))
+@@ -460,7 +460,7 @@ gsm_color_button_drag_data_drop (GtkDrop
+ 
+ static void
+ gsm_color_button_drag_begin (GtkDragSource  *drag_source,
+-                             GdkDrag*,
++                             GdkDrag* d_ __attribute__((unused)),
+                              GsmColorButton *color_button)
+ {
+   GsmColorButtonPrivate *priv = gsm_color_button_get_instance_private (color_button);
+@@ -469,9 +469,9 @@ gsm_color_button_drag_begin (GtkDragSour
+ }
+ 
+ static GdkContentProvider *
+-gsm_color_button_prepare (GtkDragSource*,
+-                          gdouble,
+-                          gdouble,
++gsm_color_button_prepare (GtkDragSource* s_ __attribute__((unused)),
++                          gdouble d1_ __attribute__((unused)),
++                          gdouble d2_ __attribute__((unused)),
+                           GsmColorButton *color_button)
+ {
+   GsmColorButtonPrivate *priv = gsm_color_button_get_instance_private (color_button);
+--- gnome-system-monitor-46.0/src/legacy/treeview.c.orig	2024-03-16 20:12:56.000000000 +0100
++++ gnome-system-monitor-46.0/src/legacy/treeview.c	2024-06-30 22:38:23.324141257 +0200
+@@ -122,8 +122,8 @@ gsm_tree_view_get_column_from_id (GsmTre
+ }
+ 
+ static void
+-cb_column_header_clicked (GtkGestureClick*,
+-                          gint,
++cb_column_header_clicked (GtkGestureClick* c_ __attribute__((unused)),
++                          gint i_ __attribute__((unused)),
+                           gdouble  x,
+                           gdouble  y,
+                           gpointer data)
+@@ -267,7 +267,7 @@ save_column_state (gpointer data)
+ 
+ static void
+ cb_update_column_state (GObject *object,
+-                        GParamSpec*,
++                        GParamSpec* s_ __attribute__((unused)),
+                         gpointer data)
+ {
+   GtkTreeViewColumn *column = GTK_TREE_VIEW_COLUMN (object);
+--- gnome-system-monitor-46.0/src/gsm-graph.c.orig	2024-03-16 20:12:56.000000000 +0100
++++ gnome-system-monitor-46.0/src/gsm-graph.c	2024-07-01 06:20:21.094056073 +0200
+@@ -52,7 +52,7 @@ G_DEFINE_TYPE_WITH_CODE (GsmGraph, gsm_g
+ 
+ static void
+ gsm_graph_css_changed (GtkWidget *widget,
+-                       GtkCssStyleChange*)
++                       GtkCssStyleChange* c_ __attribute__((unused)))
+ {
+   g_signal_emit (G_OBJECT (widget), signals[CSS_CHANGED], 0);
+ }
+@@ -203,7 +203,7 @@ gsm_graph_finalize (GObject *self)
+ 
+ static void
+ _gsm_graph_state_flags_changed (GtkWidget *widget,
+-                                GtkStateFlags*,
++                                GtkStateFlags* f_ __attribute__((unused)),
+                                 gpointer   self)
+ {
+   GsmGraph *graph = GSM_GRAPH (self);

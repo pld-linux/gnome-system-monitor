@@ -6,26 +6,27 @@
 Summary:	Simple process monitor
 Summary(pl.UTF-8):	Prosty monitor procesów
 Name:		gnome-system-monitor
-Version:	45.0.2
+Version:	46.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	https://download.gnome.org/sources/gnome-system-monitor/45/%{name}-%{version}.tar.xz
-# Source0-md5:	83212d1ee4a4d0a40e0ffcfa4cdd896d
+Source0:	https://download.gnome.org/sources/gnome-system-monitor/46/%{name}-%{version}.tar.xz
+# Source0-md5:	d2c121f58825bf5a441f16f13b0d3201
 Patch0:		%{name}-no-update.patch
+Patch1:		%{name}-no-c2x.patch
 URL:		https://wiki.gnome.org/Apps/SystemMonitor
 BuildRequires:	atkmm-devel >= 2.28
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gettext-tools >= 0.19.8
 BuildRequires:	gcc >= 6:4.7
 BuildRequires:	glib2-devel >= 1:2.56.0
-BuildRequires:	glibmm-devel >= 2.46.0
-BuildRequires:	gtk+3-devel >= 3.22.0
-BuildRequires:	gtkmm3-devel >= 3.4.0
-BuildRequires:	libgtop-devel >= 1:2.38.0
-BuildRequires:	libhandy1-devel >= 1.5.0
-BuildRequires:	librsvg-devel >= 2.35.0
-BuildRequires:	libstdc++-devel >= 6:4.7
+BuildRequires:	glibmm2.68-devel >= 2.68
+BuildRequires:	gtk4-devel >= 4.12.0
+BuildRequires:	gtkmm4-devel >= 4.0.0
+BuildRequires:	libadwaita-devel >= 1.4.0
+BuildRequires:	libgtop-devel >= 1:2.41.2
+BuildRequires:	librsvg-devel >= 2.46
+BuildRequires:	libstdc++-devel >= 6:8
 %{?with_wnck:BuildRequires:	libwnck-devel >= 3.0.0}
 BuildRequires:	libxml2-devel >= 1:2.6.31
 BuildRequires:	libxml2-progs
@@ -41,13 +42,13 @@ BuildRequires:	yelp-tools
 Requires(post,postun):	glib2 >= 1:2.56.0
 Requires:	atkmm >= 2.28
 Requires:	glib2 >= 1:2.56.0
-Requires:	glibmm >= 2.46.0
-Requires:	gtk+3 >= 3.22.0
-Requires:	gtkmm3 >= 3.4.0
+Requires:	glibmm2.68 >= 2.68
+Requires:	gtk4 >= 4.12.0
+Requires:	gtkmm4 >= 4.0.0
 Requires:	hicolor-icon-theme
-Requires:	libgtop >= 1:2.38.0
-Requires:	libhandy1 >= 1.5.0
-Requires:	librsvg >= 2.35.0
+Requires:	libadwaita >= 1.4.0
+Requires:	libgtop >= 1:2.41.2
+Requires:	librsvg >= 2.46
 Obsoletes:	procman < 1.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -60,6 +61,7 @@ GNOME System Monitor to prosty monitor procesów i systemu.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %meson build \
@@ -98,10 +100,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-system-monitor.enums.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-system-monitor.gschema.xml
 %{_datadir}/gnome-system-monitor
-%{_datadir}/metainfo/gnome-system-monitor.appdata.xml
+%{_datadir}/metainfo/org.gnome.SystemMonitor.appdata.xml
 %{_datadir}/polkit-1/actions/org.gnome.gnome-system-monitor.policy
-%{_desktopdir}/gnome-system-monitor.desktop
 %{_desktopdir}/gnome-system-monitor-kde.desktop
+%{_desktopdir}/org.gnome.SystemMonitor.desktop
 %{_iconsdir}/hicolor/scalable/apps/org.gnome.SystemMonitor.svg
 %{_iconsdir}/hicolor/scalable/apps/org.gnome.SystemMonitor.Devel.svg
 %{_iconsdir}/hicolor/symbolic/apps/org.gnome.SystemMonitor-symbolic.svg

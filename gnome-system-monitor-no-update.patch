@@ -1,12 +1,13 @@
---- gnome-system-monitor-42.0/meson.build.orig	2022-03-19 21:19:07.000000000 +0100
-+++ gnome-system-monitor-42.0/meson.build	2022-04-16 20:01:18.214184322 +0200
-@@ -204,9 +204,3 @@ message('\n'.join(['',
- '        wnck support:           @0@ @1@'.format(libwnck.found(),
-       libwnck.found() ? '(this will likely make system-monitor segfault)' : ''),
+--- gnome-system-monitor-46.0/meson.build.orig	2024-05-10 05:27:41.865587014 +0200
++++ gnome-system-monitor-46.0/meson.build	2024-05-10 16:06:39.921225276 +0200
+@@ -154,10 +154,3 @@ message('\n'.join(['',
+ '        systemd support:        @0@'.format(libsystemd.found()),
  ]))
+ 
 -
 -# Extra scripts
 -gnome.post_install(
 -  glib_compile_schemas: true,
 -  gtk_update_icon_cache: true,
 -)
+-
