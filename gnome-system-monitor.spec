@@ -1,33 +1,32 @@
 #
 # Conditional build:
 %bcond_without	systemd	# systemd support
-%bcond_with	wnck	# wnck support, "this will likely make system-monitor segfault"
 #
 Summary:	Simple process monitor
 Summary(pl.UTF-8):	Prosty monitor procesów
 Name:		gnome-system-monitor
-Version:	46.0
+Version:	47.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	https://download.gnome.org/sources/gnome-system-monitor/46/%{name}-%{version}.tar.xz
-# Source0-md5:	d2c121f58825bf5a441f16f13b0d3201
+Source0:	https://download.gnome.org/sources/gnome-system-monitor/47/%{name}-%{version}.tar.xz
+# Source0-md5:	ce34d9af4a922843400cc8823deb1176
 Patch0:		%{name}-no-update.patch
-Patch1:		%{name}-no-c2x.patch
-URL:		https://wiki.gnome.org/Apps/SystemMonitor
+URL:		https://apps.gnome.org/SystemMonitor/
 BuildRequires:	atkmm-devel >= 2.28
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gettext-tools >= 0.19.8
-BuildRequires:	gcc >= 6:4.7
+# -std=c2x
+BuildRequires:	gcc >= 6:11
 BuildRequires:	glib2-devel >= 1:2.56.0
 BuildRequires:	glibmm2.68-devel >= 2.68
 BuildRequires:	gtk4-devel >= 4.12.0
 BuildRequires:	gtkmm4-devel >= 4.0.0
-BuildRequires:	libadwaita-devel >= 1.4.0
+BuildRequires:	libadwaita-devel >= 1.6
 BuildRequires:	libgtop-devel >= 1:2.41.2
 BuildRequires:	librsvg-devel >= 2.46
+# -std=gnu++20
 BuildRequires:	libstdc++-devel >= 6:8
-%{?with_wnck:BuildRequires:	libwnck-devel >= 3.0.0}
 BuildRequires:	libxml2-devel >= 1:2.6.31
 BuildRequires:	libxml2-progs
 BuildRequires:	meson >= 0.57.0
@@ -46,7 +45,7 @@ Requires:	glibmm2.68 >= 2.68
 Requires:	gtk4 >= 4.12.0
 Requires:	gtkmm4 >= 4.0.0
 Requires:	hicolor-icon-theme
-Requires:	libadwaita >= 1.4.0
+Requires:	libadwaita >= 1.6
 Requires:	libgtop >= 1:2.41.2
 Requires:	librsvg >= 2.46
 Obsoletes:	procman < 1.1
@@ -61,12 +60,10 @@ GNOME System Monitor to prosty monitor procesów i systemu.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %build
 %meson build \
-	%{!?with_systemd:-Dsystemd=false} \
-	%{?with_wnck:-Dwnck=true}
+	%{!?with_systemd:-Dsystemd=false}
 
 %ninja_build -C build
 
@@ -107,4 +104,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/scalable/apps/org.gnome.SystemMonitor.svg
 %{_iconsdir}/hicolor/scalable/apps/org.gnome.SystemMonitor.Devel.svg
 %{_iconsdir}/hicolor/symbolic/apps/org.gnome.SystemMonitor-symbolic.svg
-%{_iconsdir}/hicolor/symbolic/apps/speedometer-symbolic.svg
+%{_iconsdir}/hicolor/symbolic/apps/processes-symbolic.svg
+%{_iconsdir}/hicolor/symbolic/apps/resources-symbolic.svg
