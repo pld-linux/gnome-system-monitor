@@ -33,7 +33,7 @@ BuildRequires:	meson >= 0.57.0
 BuildRequires:	ninja >= 1.5
 BuildRequires:	pkgconfig >= 1:0.19
 BuildRequires:	rpmbuild(find_lang) >= 1.23
-BuildRequires:	rpmbuild(macros) >= 1.736
+BuildRequires:	rpmbuild(macros) >= 2.042
 %{?with_systemd:BuildRequires:	systemd-devel >= 44}
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
@@ -62,15 +62,15 @@ GNOME System Monitor to prosty monitor procesów i systemu.
 %patch -P0 -p1
 
 %build
-%meson build \
+%meson \
 	%{!?with_systemd:-Dsystemd=false}
 
-%ninja_build -C build
+%meson_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%ninja_install -C build
+%meson_install
 
 # not supported by glibc (as of 2.37)
 %{__rm} -r $RPM_BUILD_ROOT%{_localedir}/ie
