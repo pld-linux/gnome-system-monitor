@@ -5,15 +5,16 @@
 Summary:	Simple process monitor
 Summary(pl.UTF-8):	Prosty monitor procesów
 Name:		gnome-system-monitor
-Version:	47.1
+Version:	48.1
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	https://download.gnome.org/sources/gnome-system-monitor/47/%{name}-%{version}.tar.xz
-# Source0-md5:	f6e69d246adc5445228c82011fac118a
+Source0:	https://download.gnome.org/sources/gnome-system-monitor/48/%{name}-%{version}.tar.xz
+# Source0-md5:	e5d25a6f7ee0ba9d0fb19b1eb2f852a1
 Patch0:		%{name}-no-update.patch
 URL:		https://apps.gnome.org/SystemMonitor/
 BuildRequires:	atkmm-devel >= 2.28
+BuildRequires:	catch2-devel
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gettext-tools >= 0.19.8
 # -std=c2x
@@ -97,7 +98,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-system-monitor.enums.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-system-monitor.gschema.xml
 %{_datadir}/gnome-system-monitor
-%{_datadir}/metainfo/org.gnome.SystemMonitor.appdata.xml
+%{_datadir}/metainfo/org.gnome.SystemMonitor.metainfo.xml
 %{_datadir}/polkit-1/actions/org.gnome.gnome-system-monitor.policy
 %{_desktopdir}/gnome-system-monitor-kde.desktop
 %{_desktopdir}/org.gnome.SystemMonitor.desktop
