@@ -5,12 +5,12 @@
 Summary:	Simple process monitor
 Summary(pl.UTF-8):	Prosty monitor procesów
 Name:		gnome-system-monitor
-Version:	48.1
+Version:	50.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	https://download.gnome.org/sources/gnome-system-monitor/48/%{name}-%{version}.tar.xz
-# Source0-md5:	e5d25a6f7ee0ba9d0fb19b1eb2f852a1
+Source0:	https://download.gnome.org/sources/gnome-system-monitor/50/%{name}-%{version}.tar.xz
+# Source0-md5:	24c73cd65f22e53bc82bef32a79a3ce3
 Patch0:		%{name}-no-update.patch
 URL:		https://apps.gnome.org/SystemMonitor/
 BuildRequires:	atkmm-devel >= 2.28
@@ -19,11 +19,11 @@ BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gettext-tools >= 0.19.8
 # -std=c2x
 BuildRequires:	gcc >= 6:11
-BuildRequires:	glib2-devel >= 1:2.56.0
-BuildRequires:	glibmm2.68-devel >= 2.68
-BuildRequires:	gtk4-devel >= 4.12.0
-BuildRequires:	gtkmm4-devel >= 4.0.0
-BuildRequires:	libadwaita-devel >= 1.6
+BuildRequires:	glib2-devel >= 1:2.84
+BuildRequires:	glibmm2.68-devel >= 2.80
+BuildRequires:	gtk4-devel >= 4.17.5
+BuildRequires:	gtkmm4-devel >= 4.17.5
+BuildRequires:	libadwaita-devel >= 1.8
 BuildRequires:	libgtop-devel >= 1:2.41.2
 BuildRequires:	librsvg-devel >= 2.46
 # -std=gnu++20
@@ -39,14 +39,14 @@ BuildRequires:	rpmbuild(macros) >= 2.042
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 BuildRequires:	yelp-tools
-Requires(post,postun):	glib2 >= 1:2.56.0
+Requires(post,postun):	glib2 >= 1:2.84
 Requires:	atkmm >= 2.28
-Requires:	glib2 >= 1:2.56.0
-Requires:	glibmm2.68 >= 2.68
-Requires:	gtk4 >= 4.12.0
-Requires:	gtkmm4 >= 4.0.0
+Requires:	glib2 >= 1:2.84
+Requires:	glibmm2.68 >= 2.80
+Requires:	gtk4 >= 4.17.5
+Requires:	gtkmm4 >= 4.17.5
 Requires:	hicolor-icon-theme
-Requires:	libadwaita >= 1.6
+Requires:	libadwaita >= 1.8
 Requires:	libgtop >= 1:2.41.2
 Requires:	librsvg >= 2.46
 Obsoletes:	procman < 1.1
@@ -95,9 +95,9 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libexecdir}/gnome-system-monitor/gsm-kill
 %attr(755,root,root) %{_libexecdir}/gnome-system-monitor/gsm-renice
 %attr(755,root,root) %{_libexecdir}/gnome-system-monitor/gsm-taskset
+%{_datadir}/dbus-1/services/org.gnome.SystemMonitor.service
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-system-monitor.enums.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-system-monitor.gschema.xml
-%{_datadir}/gnome-system-monitor
 %{_datadir}/metainfo/org.gnome.SystemMonitor.metainfo.xml
 %{_datadir}/polkit-1/actions/org.gnome.gnome-system-monitor.policy
 %{_desktopdir}/gnome-system-monitor-kde.desktop
